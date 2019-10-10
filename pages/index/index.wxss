@@ -1,5 +1,4 @@
 .container { 
-	
   display: flex;
   height: 100%; 
   flex-direction: column;
@@ -12,13 +11,19 @@
   position: relative;
   display: flex;
   flex: 2;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
   background-color: #3197ed;
   transition: all .5s;
-  
   padding: 10px 0;
+}
+
+.ing{
+	margin-bottom: 50rpx;
+	color:white;
+	font-size: 40rpx;
 }
 
 .timer_time-wrap {
@@ -30,6 +35,11 @@
   height: 150px;
   text-align: center;
   transition: all .3s;
+}
+
+.finishflag{
+	width: 128rpx;
+	height: 128rpx;
 }
 
 .timer_progress {
@@ -115,7 +125,7 @@
 	margin-top: 70rpx;
 	display: flex;
 	justify-content: center;
-	/* align-items: center; */
+	align-items: center;
 }
 
 .button{
@@ -161,12 +171,13 @@
 .timer_running .two-buttons{
 	bottom: 50rpx;
 	position: fixed;
-	z-index: 99999;
+	z-index: 9;
+	width: 100%;
+	display: flex;
+	justify-content: center;
 }
 
 .timer_running .button{
-	transform: translateX(-20%);
-	
 	background-color: #208DEA;
 	height: 80rpx;
 	border: 1px dashed #dedede;

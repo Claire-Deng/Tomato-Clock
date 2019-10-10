@@ -1,17 +1,19 @@
-const formatTime = date => {
-  const year = date.getFullYear()
-  const month = date.getMonth() + 1
-  const day = date.getDate()
-  const hour = date.getHours()
-  const minute = date.getMinutes()
-  const second = date.getSeconds()
-
-  return [year, month, day].map(formatNumber).join('/') + ' ' + [hour, minute, second].map(formatNumber).join(':')
-}
-
-const formatNumber = n => {
-  n = n.toString()
-  return n[1] ? n : '0' + n
+function formatTime(timeStamp) {
+  let seconds = Math.floor(timeStamp/1000)%60;
+          let minutes = Math.floor(timeStamp/60/1000);
+          let reseconds;
+          let reminutes;
+          if(seconds<10){
+              reseconds="0"+seconds
+          }else{
+              reseconds=""+seconds;
+          }
+          if(minutes<=0){
+              reminutes = ""
+          }else{
+              reminutes = minutes+":"
+          }
+          return reminutes+reseconds;
 }
 
 module.exports = {
