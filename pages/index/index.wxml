@@ -1,0 +1,26 @@
+<view class="container {{counting?'timer_running':null}}">
+	<view class="timer_main">
+		<view class="timer_time-wrap">
+			<view class="timer_progress_mask"></view>
+			<view class="timer_progress timer_left">
+				<view class="timer_circle timer_circle--left" style="transform: rotate({{leftDeg}}deg);"></view>
+			</view>
+			<view class="timer_progress timer_right">
+				<view class="timer_circle timer_circle--right" style="transform: rotate({{rightDeg}}deg);"></view>
+			</view>
+			<text wx:if="{{!completed}}" class="timer_time">12:00</text>
+
+		</view>
+
+	</view>
+
+	<view class="timer_footer">
+		<input type="text" placeholder-style="text-align:center" class="timer_inputname" bindinput="changeLogName"
+		 placeholder="Name your task here!" />
+		<view class="two-buttons">
+			<view bind:tap="startTimer" data-type='work' class="button {{counting && type == 'rest' ? 'hide' : ''}}" >Work</view>
+			<view bind:tap="startTimer" data-type='rest' class="button {{counting && type == 'work' ? 'hide' : ''}}" >Rest</view>
+		</view>
+
+	</view>
+</view>

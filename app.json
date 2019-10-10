@@ -1,0 +1,40 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/logs/logs",
+	"pages/setting/setting"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#3197ED",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "color": "#dddddd",
+    "selectedColor": "#3cc51f",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "/static/images/wechat.png",
+        "selectedIconPath": "/static/images/wechatHL.png",
+        "text": "Home"
+      },
+      {
+        "pagePath": "pages/logs/logs",
+        "iconPath": "/static/images/wechat.png",
+        "selectedIconPath": "/static/images/wechatHL.png",
+        "text": "Record"
+      },
+      {
+        "pagePath": "pages/setting/setting",
+        "iconPath": "/static/images/wechat.png",
+        "selectedIconPath": "/static/images/wechatHL.png",
+        "text": "Settings"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
+}

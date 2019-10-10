@@ -1,0 +1,45 @@
+/**app.wxss**/
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+} 
+
+view,
+sroll-view,
+swiper,
+icon,
+text,
+progress,
+button,
+checkbox,
+form,
+input,
+label,
+input,
+picker,
+radio,
+slider,
+switch,
+action-sheet,
+modal,
+toast,
+loading,
+navigator,
+audio,
+image,
+video,
+map,
+canvas {
+  box-sizing: border-box;
+}
+
+page{
+	height: 100%;
+}
+
+.hide {
+  display: none!important;
+}
