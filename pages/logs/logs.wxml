@@ -1,4 +1,19 @@
 <!--logs.wxml-->
-<view class="container log-list">
-  
+<view class="container">
+	<view wx:if="{{logs.length}}">
+		<scroll-view class="scroll" scroll-y="true">
+			<view class="log_item" wx:for="{{logs}}" wx:key="$index" wx:for-index="$index" wx:for-item="log">
+				{{log}}
+			</view>
+		</scroll-view>
+		<view bindtap="clearData" class="clear">
+			Clear all data
+		</view>
+	</view>
+
+
+	<view class="no-data" wx:else>
+		<image src="/static/images/nodata.png"></image>
+		<view>Sorry, there is no data.</view>
+	</view>
 </view>

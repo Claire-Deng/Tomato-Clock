@@ -1,1 +1,42 @@
+.scroll{
+	margin-top: 30rpx;
+	padding: 30rpx;
+	text-align: center;
+	background: #E1E2E1;
+	width: unset;
+	border-radius: 20rpx;
+}
+.scroll view{
+	line-height: 60rpx;
+	font-size: 34rpx;
+}
 
+.clear{
+	color:white;
+	position: fixed;
+	bottom:100rpx;
+	left:50%;
+	transform: translateX(-50%);
+	text-align: center;
+	padding: 10rpx 30rpx;
+	border: 1px solid orange;
+	background: #F4CE7D;
+	border-radius: 20rpx;
+}
+
+.no-data{
+	
+	margin-top: 70%;
+	display: flex;
+	align-items: center;
+}
+
+.no-data image{
+	margin-right: 20rpx;
+	width: 128rpx;
+	height: 128rpx;
+}
+
+.no-data view{
+	color:#E1E2E1;
+}

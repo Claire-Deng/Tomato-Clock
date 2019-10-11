@@ -12,6 +12,7 @@ Page({
 		leftDeg: initDeg.left,
 		rightDeg: initDeg.right,
 		log: {},
+		taskName:'',
 		// count down time
 		keepTimeMinute: 0.2,
 		remainingTime: '',
@@ -33,16 +34,13 @@ Page({
 		
 	},
 	//change task name
-	changeLogName:function(e){
-		this.setData({
-			log:{
-				logName:e.detail.value
-			}
-		})
+	changeLogName:function(e){	
+		this.logName = e.detail.value;
 	},
 	
 	//start counting down
 	startTimer: function(e) {
+		let logName = this.logName
 		let startTime = Date.now();
 		let keepTime = this.data.keepTimeMinute * 60 * 1000;
 		
@@ -50,12 +48,14 @@ Page({
 			counting: true,
 			completed:false,
 			type: e.target.dataset.type,
+			taskName:logName,
 			log: {
 				startTime: startTime,
 				keepTime: keepTime,
 				
 			}
 		})
+		// 重置一下时间
 		let current = util.formatTime(this.data.keepTimeMinute * 60 * 1000)
 		this.setData({
 			remainingTime: current
@@ -66,11 +66,23 @@ Page({
 				this.wordAnimation()
 			}).bind(this), 1000)
 		}else{
-			this.stopTimer();
-			
+			this.stopTimer();			
 		}
-
+		this.log={			
+			startTime:startTime,
+			taskName:this.data.taskName || this.data.type
+		}
+		this.saveLog(this.log);
 	},
+	// 缓存数据
+	saveLog:(log)=>{
+		
+		var logs = wx.getStorageSync('logs') || []
+		logs.unshift(log)
+		wx.setStorageSync('logs', logs);
+		console.log(logs)
+	},
+	
 	stopTimer: function() {
 	  // reset circle progress
 	  this.setData({
@@ -79,7 +91,10 @@ Page({
 	  })
 	
 	  // clear timer
-	  clearInterval(this.timer)
+	  clearInterval(this.timer);
+	  this.setData({
+		  taskName:''
+	  })
 	},
 
 	updateTime: function() {
